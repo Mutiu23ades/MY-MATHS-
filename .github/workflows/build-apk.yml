@@ -14,29 +14,29 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
 
-      - name: Check project files
-        run: |
-          echo "Repository files:"
-          ls -la
-          echo ""
-          echo "Checking for index.html..."
-          if [ -f "index.html" ]; then
-            echo "SUCCESS: index.html found in repository root."
-          else
-            echo "ERROR: index.html is missing from repository root."
-            exit 1
-          fi
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Check project files
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          echo "All Mathematics app files found."
+
       - name: Create package.json
         run: |
           cat > package.json <<'EOF'
           {
-            "name": "sss1-mathematics-app",
+            "name": "sss1-mathematics",
             "version": "1.0.0",
             "private": true,
             "dependencies": {
@@ -75,11 +75,10 @@ jobs:
       - name: Rename APK
         run: |
           cp android/app/build/outputs/apk/debug/app-debug.apk \
-             "SSS 1 Mathematics App.apk"
+          SSS-1-Mathematics-App.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: SSS-1-Mathematics-App-APK
-          path: "SSS 1 Mathematics App.apk"
-          if-no-files-found: error
+          path: SSS-1-Mathematics-App.apk
