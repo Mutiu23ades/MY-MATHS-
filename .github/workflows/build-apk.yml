@@ -14,38 +14,22 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
 
+      - name: Check project files
+        run: |
+          ls -la
+          test -f index.html
+          test -f style.css
+          test -f script.js
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 21
-
-      - name: Check project files
+      - name: Install Capacitor
         run: |
-          test -f index.html
-          test -f style.css
-          test -f script.js
-          echo "All Mathematics app files found."
-
-      - name: Create package.json
-        run: |
-          cat > package.json <<'EOF'
-          {
-            "name": "sss1-mathematics",
-            "version": "1.0.0",
-            "private": true,
-            "dependencies": {
-              "@capacitor/core": "^7.4.3",
-              "@capacitor/android": "^7.4.3",
-              "@capacitor/cli": "^7.4.3"
-            }
-          }
-          EOF
+          npm install
+          npm install @capacitor/core @capacitor/cli @capacitor/android
 
       - name: Create Capacitor configuration
         run: |
@@ -57,13 +41,10 @@ jobs:
           }
           EOF
 
-      - name: Install Capacitor
-        run: npm install
-
-      - name: Add Android platform
+      - name: Create Android project
         run: npx cap add android
 
-      - name: Sync Mathematics app
+      - name: Sync Android project
         run: npx cap sync android
 
       - name: Build APK
@@ -74,11 +55,12 @@ jobs:
 
       - name: Rename APK
         run: |
+          mkdir -p apk
           cp android/app/build/outputs/apk/debug/app-debug.apk \
-          SSS-1-Mathematics-App.apk
+             apk/SSS-1-Mathematics-App.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: SSS-1-Mathematics-App-APK
-          path: SSS-1-Mathematics-App.apk
+          name: SSS-1-Mathematics-App
+          path: apk/SSS-1-Mathematics-App.apk
