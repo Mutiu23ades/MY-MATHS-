@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-    name: Build SSS 1 Mathematics APK
     runs-on: ubuntu-latest
 
     steps:
@@ -24,49 +23,47 @@ jobs:
         run: |
           echo "Files in repository:"
           ls -la
+          echo "Checking for index.html..."
+          find . -maxdepth 3 -name "index.html" -print
 
       - name: Create web directory
         run: |
           mkdir -p www
 
-          if [ -f index.html ]; then
-            cp index.html www/index.html
+          if [ -f "./index.html" ]; then
+            cp "./index.html" "./www/index.html"
+          elif [ -f "./www/index.html" ]; then
+            echo "index.html already exists in www"
           else
-            echo "ERROR: index.html was not found in repository root."
+            echo "ERROR: No index.html was found."
             exit 1
           fi
 
-          if [ -f style.css ]; then
-            cp style.css www/style.css
+          if [ -f "./style.css" ]; then
+            cp "./style.css" "./www/style.css"
           fi
 
-          if [ -f script.js ]; then
-            cp script.js www/script.js
+          if [ -f "./script.js" ]; then
+            cp "./script.js" "./www/script.js"
           fi
-
-          echo "Web files:"
-          ls -la www
 
       - name: Create package.json
         run: |
           cat > package.json <<'EOF'
           {
-            "name": "sss1-mathematics",
+            "name": "sss1-mathematics-app",
             "version": "1.0.0",
             "private": true,
-            "dependencies": {
-              "@capacitor/core": "^7.4.3"
+            "scripts": {
+              "build": "echo SSS 1 Mathematics App"
             },
-            "devDependencies": {
-              "@capacitor/cli": "^7.4.3",
-              "@capacitor/android": "^7.4.3"
+            "dependencies": {
+              "@capacitor/core": "^7.4.3",
+              "@capacitor/android": "^7.4.3",
+              "@capacitor/cli": "^7.4.3"
             }
           }
           EOF
-
-      - name: Install Capacitor
-        run: |
-          npm install
 
       - name: Create Capacitor configuration
         run: |
@@ -78,13 +75,14 @@ jobs:
           }
           EOF
 
-      - name: Create Android project
-        run: |
-          npx cap add android
+      - name: Install Capacitor
+        run: npm install
 
-      - name: Copy web app to Android
-        run: |
-          npx cap sync android
+      - name: Add Android platform
+        run: npx cap add android
+
+      - name: Copy web app into Android
+        run: npx cap sync android
 
       - name: Build APK
         run: |
@@ -92,13 +90,9 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
-      - name: Verify APK
-        run: |
-          ls -lh android/app/build/outputs/apk/debug/app-debug.apk
-
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: SSS-1-Mathematics-App-APK
+          name: SSS-1-Mathematics-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
