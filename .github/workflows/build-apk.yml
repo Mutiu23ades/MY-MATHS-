@@ -19,6 +19,11 @@ jobs:
         with:
           node-version: 22
 
+      - name: Create web directory
+        run: |
+          mkdir -p www
+          cp index.html www/index.html
+
       - name: Create package.json
         run: |
           npm init -y
@@ -30,7 +35,7 @@ jobs:
           {
             "appId": "com.sss1mathematics.app",
             "appName": "SSS 1 Mathematics",
-            "webDir": ".",
+            "webDir": "www",
             "bundledWebRuntime": false
           }
           EOF
