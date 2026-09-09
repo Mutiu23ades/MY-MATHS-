@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout project
         uses: actions/checkout@v4
 
@@ -22,7 +23,9 @@ jobs:
       - name: Create web directory
         run: |
           mkdir -p www
-          cp index.html www/index.html
+          cp ./index.html ./www/index.html
+          echo "Web directory created successfully"
+          ls -la www
 
       - name: Create package.json
         run: |
@@ -34,21 +37,28 @@ jobs:
           cat > capacitor.config.json <<'EOF'
           {
             "appId": "com.sss1mathematics.app",
-            "appName": "SSS 1 Mathematics",
-            "webDir": "www",
-            "bundledWebRuntime": false
+            "appName": "SSS 1 Mathematics App",
+            "webDir": "www"
           }
           EOF
 
       - name: Add Android platform
-        run: npx cap add android
+        run: |
+          npx cap add android
 
-      - name: Copy web files
-        run: npx cap copy android
+      - name: Sync Capacitor
+        run: |
+          npx cap sync android
+
+      - name: Set Android app name
+        run: |
+          sed -i 's#<string name="app_name">.*</string>#<string name="app_name">SSS 1 Mathematics App</string>#' android/app/src/main/res/values/strings.xml
 
       - name: Build APK
-        working-directory: android
-        run: ./gradlew assembleDebug
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
