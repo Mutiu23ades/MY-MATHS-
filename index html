@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b5ed7">
 
-<title>SSS 1 Mathematics</title>
+<title>SSS 1 Mathematics App</title>
 
 <style>
 * {
@@ -14,16 +14,17 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f8ff;
-    color: #172033;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f7ff;
+    color: #222;
+    line-height: 1.7;
 }
 
 header {
     background: #0b5ed7;
     color: white;
     text-align: center;
-    padding: 22px 12px;
+    padding: 25px 15px;
 }
 
 header h1 {
@@ -39,21 +40,22 @@ header p {
 .container {
     max-width: 900px;
     margin: auto;
-    padding: 15px;
+    padding: 20px;
 }
 
 .selector-box {
     background: white;
-    padding: 18px;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 label {
-    font-weight: bold;
     display: block;
-    margin-bottom: 8px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0b5ed7;
 }
 
 select {
@@ -68,7 +70,7 @@ select {
 #content {
     display: none;
     background: white;
-    padding: 20px;
+    padding: 22px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
@@ -81,25 +83,38 @@ h2 {
 
 h3 {
     color: #084298;
-    margin-top: 24px;
+    margin-top: 25px;
 }
 
 .example,
 .practice,
 .answer {
-    background: #f5f9ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.example {
+    background: #eef5ff;
     border-left: 5px solid #0b5ed7;
-    padding: 12px;
-    margin: 12px 0;
-    border-radius: 5px;
 }
 
 .practice {
-    border-left-color: #198754;
+    background: #fff8e6;
+    border-left: 5px solid #f0ad00;
 }
 
 .answer {
-    border-left-color: #fd7e14;
+    background: #eaf8ee;
+    border-left: 5px solid #198754;
+}
+
+.formula {
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 7px;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
 button {
@@ -107,17 +122,18 @@ button {
     color: white;
     border: none;
     padding: 12px 18px;
-    border-radius: 7px;
-    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
     font-size: 15px;
 }
 
-ul, ol {
-    line-height: 1.7;
+button:hover {
+    background: #084298;
 }
 
-p {
-    line-height: 1.7;
+li {
+    margin-bottom: 7px;
 }
 
 footer {
@@ -132,17 +148,18 @@ footer {
 <body>
 
 <header>
-    <h1>SSS 1 Mathematics</h1>
-    <p>Lessons • Worked Examples • Practice Questions • Answers</p>
+    <h1>SSS 1 Mathematics App</h1>
+    <p>35 Topics • Lessons • Worked Examples • Practice Questions • Answers</p>
 </header>
 
 <div class="container">
 
     <div class="selector-box">
-        <label for="topicSelect">Select a Mathematics Topic:</label>
+        <label for="topicSelect">Select a Mathematics Topic</label>
 
         <select id="topicSelect" onchange="showTopic()">
             <option value="">-- Select Topic --</option>
+
             <option value="1">1. Number Bases</option>
             <option value="2">2. Fractions and Decimals</option>
             <option value="3">3. Approximation and Estimation</option>
@@ -186,7 +203,7 @@ footer {
 </div>
 
 <footer>
-    SSS 1 Mathematics © 2026
+    SSS 1 Mathematics App © 2026
 </footer>
 
 <script>
@@ -195,1044 +212,1587 @@ const topics = {
 
 1: {
 title: "Number Bases",
-lesson: `
-<p>A number base is the system used to represent numbers using a particular set of digits.</p>
 
-<p>Our ordinary decimal system is base 10 and uses the digits 0 to 9.</p>
+lesson: `
+<p>A number base is a system used to represent numbers using a particular set of digits.</p>
+
+<p>The decimal system is base 10 and uses the digits 0 to 9. Other common bases include binary (base 2), ternary (base 3), quaternary (base 4), octal (base 8) and hexadecimal (base 16).</p>
 
 <p>In base 2, only 0 and 1 are used. In base 5, the digits 0, 1, 2, 3 and 4 are used.</p>
 
-<p>The place values in base b are powers of b.</p>
-`,
-example: `
-<p><b>Example 1:</b> Convert 1011₂ to base 10.</p>
-<p>1011₂ = 1(2³) + 0(2²) + 1(2¹) + 1(2⁰)</p>
-<p>= 8 + 0 + 2 + 1 = <b>11₁₀</b></p>
+<div class="formula">
+(234)<sub>5</sub> = 2(5<sup>2</sup>) + 3(5<sup>1</sup>) + 4(5<sup>0</sup>)
+</div>
 
-<p><b>Example 2:</b> Convert 25₁₀ to base 2.</p>
-<p>25 = 16 + 8 + 1</p>
-<p>Therefore, 25₁₀ = <b>11001₂</b>.</p>
+<p>To convert from another base to base 10, multiply each digit by the appropriate power of the base and add.</p>
+
+<p>To convert a decimal number to another base, repeatedly divide by the new base and read the remainders from bottom to top.</p>
 `,
+
+example: `
+<p><b>Example 1:</b> Convert (1011)<sub>2</sub> to base 10.</p>
+<p>= 1(2<sup>3</sup>) + 0(2<sup>2</sup>) + 1(2<sup>1</sup>) + 1(2<sup>0</sup>)</p>
+<p>= 8 + 0 + 2 + 1 = <b>11</b>.</p>
+
+<p><b>Example 2:</b> Convert 25<sub>10</sub> to base 2.</p>
+<p>25 ÷ 2 = 12 remainder 1</p>
+<p>12 ÷ 2 = 6 remainder 0</p>
+<p>6 ÷ 2 = 3 remainder 0</p>
+<p>3 ÷ 2 = 1 remainder 1</p>
+<p>1 ÷ 2 = 0 remainder 1</p>
+<p>Therefore 25<sub>10</sub> = <b>11001<sub>2</sub></b>.</p>
+`,
+
 practice: `
 <ol>
-<li>Convert 1101₂ to base 10.</li>
-<li>Convert 18₁₀ to base 2.</li>
-<li>Convert 234₅ to base 10.</li>
-<li>Add 101₂ and 11₂.</li>
+<li>Convert (11010)<sub>2</sub> to base 10.</li>
+<li>Convert (243)<sub>5</sub> to base 10.</li>
+<li>Convert 18<sub>10</sub> to base 2.</li>
+<li>Convert 45<sub>10</sub> to base 5.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 13₁₀</p>
-<p>2. 10010₂</p>
-<p>3. 69₁₀</p>
-<p>4. 1000₂</p>
+<ol>
+<li>26<sub>10</sub></li>
+<li>73<sub>10</sub></li>
+<li>10010<sub>2</sub></li>
+<li>140<sub>5</sub></li>
+</ol>
 `
 },
 
 2: {
 title: "Fractions and Decimals",
+
 lesson: `
 <p>A fraction represents part of a whole. It has a numerator and denominator.</p>
 
-<p>Proper fractions have numerators smaller than denominators. Improper fractions have numerators greater than or equal to their denominators.</p>
+<p>Fractions may be proper, improper or mixed numbers. To add or subtract fractions, first find a common denominator.</p>
 
-<p>Decimals are another way of representing fractions based on powers of 10.</p>
+<p>To multiply fractions, multiply the numerators and multiply the denominators. To divide by a fraction, multiply by its reciprocal.</p>
 
-<p>To add or subtract fractions, first obtain a common denominator.</p>
+<p>A decimal can be terminating or recurring. Fractions can be converted to decimals by division.</p>
+
+<div class="formula">
+Fraction = Numerator ÷ Denominator
+</div>
 `,
+
 example: `
-<p><b>Example:</b> Calculate 1/3 + 1/6.</p>
-<p>The LCM of 3 and 6 is 6.</p>
-<p>1/3 = 2/6</p>
-<p>Therefore, 2/6 + 1/6 = <b>1/2</b>.</p>
+<p><b>Example 1:</b> Evaluate 2/3 + 1/6.</p>
+<p>LCM of 3 and 6 is 6.</p>
+<p>2/3 = 4/6.</p>
+<p>Therefore 4/6 + 1/6 = <b>5/6</b>.</p>
+
+<p><b>Example 2:</b> Evaluate 3/4 × 2/5.</p>
+<p>= 6/20 = <b>3/10</b>.</p>
+
+<p><b>Example 3:</b> Convert 0.75 to a fraction.</p>
+<p>0.75 = 75/100 = <b>3/4</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Calculate 2/5 + 1/10.</li>
-<li>Calculate 3/4 − 1/8.</li>
-<li>Convert 0.75 to a fraction.</li>
-<li>Convert 3/5 to a decimal.</li>
+<li>Calculate 3/5 + 1/10.</li>
+<li>Calculate 7/8 - 1/4.</li>
+<li>Calculate 2/3 × 9/10.</li>
+<li>Convert 0.625 to a fraction.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 1/2</p>
-<p>2. 5/8</p>
-<p>3. 3/4</p>
-<p>4. 0.6</p>
+<ol>
+<li>7/10</li>
+<li>5/8</li>
+<li>3/5</li>
+<li>5/8</li>
+</ol>
 `
 },
 
 3: {
 title: "Approximation and Estimation",
+
 lesson: `
-<p>Approximation means giving a value close to the exact value.</p>
+<p>Approximation means giving a number close to its exact value. Common methods include rounding to a given number of decimal places or significant figures.</p>
 
-<p>Numbers may be rounded to the nearest whole number, ten, hundred, decimal place or significant figure.</p>
+<p>For decimal places, count digits after the decimal point. For significant figures, begin counting from the first non-zero digit.</p>
 
-<p>When rounding, look at the digit immediately after the required place. If it is 5 or greater, increase the preceding digit by 1.</p>
+<p>If the next digit is 5 or greater, increase the last retained digit by 1. If it is less than 5, leave the retained digit unchanged.</p>
+
+<p>Estimation involves replacing numbers by convenient approximate values to obtain a quick answer.</p>
 `,
+
 example: `
-<p><b>Example:</b> Round 47.638 to 2 decimal places.</p>
-<p>The third decimal digit is 8, so the second decimal digit increases.</p>
-<p>Answer = <b>47.64</b>.</p>
+<p><b>Example 1:</b> Round 47.386 to 2 decimal places.</p>
+<p>The third decimal digit is 6, so 47.38 becomes <b>47.39</b>.</p>
 
-<p><b>Example:</b> Round 8,764 to 2 significant figures.</p>
-<p>Answer = <b>8,800</b>.</p>
+<p><b>Example 2:</b> Round 0.004827 to 2 significant figures.</p>
+<p>The first two significant figures are 4 and 8. The next digit is 2.</p>
+<p>Answer = <b>0.0048</b>.</p>
+
+<p><b>Example 3:</b> Estimate 49.8 × 20.2.</p>
+<p>Use 50 × 20 = <b>1000</b>.</p>
 `,
+
 practice: `
 <ol>
 <li>Round 38.746 to 2 decimal places.</li>
-<li>Round 5,673 to 2 significant figures.</li>
-<li>Estimate 49.8 × 19.7.</li>
+<li>Round 0.006438 to 2 significant figures.</li>
+<li>Estimate 198 × 51.</li>
+<li>Estimate 402 ÷ 19.8.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 38.75</p>
-<p>2. 5,700</p>
-<p>3. Approximately 1,000</p>
+<ol>
+<li>38.75</li>
+<li>0.0064</li>
+<li>About 10,000</li>
+<li>About 20</li>
+</ol>
 `
 },
 
 4: {
 title: "Standard Form",
-lesson: `
-<p>Standard form expresses a number as A × 10ⁿ, where 1 ≤ A &lt; 10 and n is an integer.</p>
 
-<p>Large numbers have positive powers of 10 while very small numbers have negative powers.</p>
+lesson: `
+<p>Standard form is used to write very large or very small numbers conveniently.</p>
+
+<div class="formula">
+A × 10<sup>n</sup>, where 1 ≤ A &lt; 10
+</div>
+
+<p>A positive exponent is used for numbers greater than or equal to 10, while a negative exponent is used for numbers between 0 and 1.</p>
+
+<p>When multiplying numbers in standard form, multiply the coefficients and add the powers of 10.</p>
+
+<p>When dividing, divide the coefficients and subtract the powers.</p>
 `,
+
 example: `
-<p>45,000 = <b>4.5 × 10⁴</b></p>
-<p>0.00072 = <b>7.2 × 10⁻⁴</b></p>
+<p><b>Example 1:</b> Write 4500000 in standard form.</p>
+<p>= <b>4.5 × 10<sup>6</sup></b>.</p>
+
+<p><b>Example 2:</b> Write 0.00032 in standard form.</p>
+<p>= <b>3.2 × 10<sup>-4</sup></b>.</p>
+
+<p><b>Example 3:</b> (3 × 10<sup>4</sup>)(2 × 10<sup>3</sup>)</p>
+<p>= 6 × 10<sup>7</sup>.</p>
 `,
+
 practice: `
 <ol>
-<li>Write 6,300,000 in standard form.</li>
-<li>Write 0.00045 in standard form.</li>
-<li>Calculate (3 × 10²)(2 × 10³).</li>
+<li>Write 720000 in standard form.</li>
+<li>Write 0.000056 in standard form.</li>
+<li>Evaluate (4 × 10<sup>5</sup>)(3 × 10<sup>2</sup>).</li>
+<li>Evaluate (8 × 10<sup>6</sup>) ÷ (2 × 10<sup>3</sup>).</li>
 </ol>
 `,
+
 answer: `
-<p>1. 6.3 × 10⁶</p>
-<p>2. 4.5 × 10⁻⁴</p>
-<p>3. 6 × 10⁵</p>
+<ol>
+<li>7.2 × 10<sup>5</sup></li>
+<li>5.6 × 10<sup>-5</sup></li>
+<li>1.2 × 10<sup>8</sup></li>
+<li>4 × 10<sup>3</sup></li>
+</ol>
 `
 },
 
 5: {
 title: "Logarithms",
+
 lesson: `
 <p>A logarithm is another way of expressing an index.</p>
 
-<p>If aˣ = N, then logₐN = x.</p>
+<div class="formula">
+If a<sup>x</sup> = N, then log<sub>a</sub>N = x.
+</div>
 
-<p>For example, because 2³ = 8, log₂8 = 3.</p>
-
-<p>Important laws include:</p>
+<p>The logarithm laws are:</p>
 <ul>
-<li>logₐ(MN) = logₐM + logₐN</li>
-<li>logₐ(M/N) = logₐM − logₐN</li>
-<li>logₐ(Mⁿ) = n logₐM</li>
+<li>log(ab) = log a + log b</li>
+<li>log(a/b) = log a - log b</li>
+<li>log(a<sup>n</sup>) = n log a</li>
 </ul>
-`,
-example: `
-<p><b>Example:</b> Evaluate log₂32.</p>
-<p>Since 2⁵ = 32, log₂32 = <b>5</b>.</p>
 
-<p><b>Example:</b> Simplify log 1000.</p>
-<p>Since 10³ = 1000, log 1000 = <b>3</b>.</p>
+<p>Common logarithms have base 10. The logarithm of 1 to any valid base is 0.</p>
 `,
+
+example: `
+<p><b>Example 1:</b> Evaluate log<sub>10</sub>1000.</p>
+<p>Since 10<sup>3</sup> = 1000, the answer is <b>3</b>.</p>
+
+<p><b>Example 2:</b> Solve log<sub>2</sub>x = 5.</p>
+<p>x = 2<sup>5</sup> = <b>32</b>.</p>
+
+<p><b>Example 3:</b> Simplify log 100 + log 10.</p>
+<p>= log(100 × 10) = log 1000 = <b>3</b>.</p>
+`,
+
 practice: `
 <ol>
-<li>Evaluate log₂16.</li>
-<li>Evaluate log₃27.</li>
-<li>Evaluate log₁₀100.</li>
-<li>Simplify logₐ(xy).</li>
+<li>Evaluate log<sub>10</sub>100.</li>
+<li>Evaluate log<sub>2</sub>16.</li>
+<li>Solve log<sub>3</sub>x = 4.</li>
+<li>Simplify log 1000 - log 10.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 4</p>
-<p>2. 3</p>
-<p>3. 2</p>
-<p>4. logₐx + logₐy</p>
+<ol>
+<li>2</li>
+<li>4</li>
+<li>x = 81</li>
+<li>2</li>
+</ol>
 `
 },
 
 6: {
 title: "Indices",
+
 lesson: `
-<p>Indices are powers or exponents. They show how many times a number is multiplied by itself.</p>
+<p>Indices, also called powers or exponents, show how many times a number is multiplied by itself.</p>
 
-<p>Important laws:</p>
-<ul>
-<li>aᵐ × aⁿ = aᵐ⁺ⁿ</li>
-<li>aᵐ ÷ aⁿ = aᵐ⁻ⁿ</li>
-<li>(aᵐ)ⁿ = aᵐⁿ</li>
-<li>a⁰ = 1</li>
-<li>a⁻ⁿ = 1/aⁿ</li>
-<li>a¹/ⁿ = ⁿ√a</li>
-</ul>
+<div class="formula">
+a<sup>m</sup> × a<sup>n</sup> = a<sup>m+n</sup>
+</div>
 
-<p>Indicial equations are equations involving unknown powers. They can often be solved by expressing both sides with the same base.</p>
+<div class="formula">
+a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m-n</sup>
+</div>
+
+<div class="formula">
+(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>
+</div>
+
+<p>Also, a<sup>0</sup> = 1 for a ≠ 0, and a<sup>-n</sup> = 1/a<sup>n</sup>.</p>
+
+<p>Fractional indices are related to roots. For example, a<sup>1/2</sup> = √a.</p>
+
+<p>An indicial equation is an equation in which the unknown occurs as an exponent.</p>
 `,
+
 example: `
-<p><b>Example:</b> Simplify 2³ × 2⁴.</p>
-<p>= 2⁷ = <b>128</b></p>
+<p><b>Example 1:</b> Simplify 2<sup>3</sup> × 2<sup>4</sup>.</p>
+<p>= 2<sup>7</sup> = <b>128</b>.</p>
 
-<p><b>Indicial equation:</b> Solve 2ˣ = 32.</p>
-<p>Since 32 = 2⁵, therefore x = <b>5</b>.</p>
+<p><b>Example 2:</b> Simplify 5<sup>7</sup> ÷ 5<sup>3</sup>.</p>
+<p>= 5<sup>4</sup> = <b>625</b>.</p>
 
-<p><b>Example:</b> Solve 3ˣ⁺¹ = 27.</p>
-<p>27 = 3³.</p>
-<p>x + 1 = 3, so <b>x = 2</b>.</p>
+<p><b>Example 3:</b> Solve 2<sup>x</sup> = 32.</p>
+<p>Since 32 = 2<sup>5</sup>, x = <b>5</b>.</p>
+
+<p><b>Example 4:</b> Solve 3<sup>2x</sup> = 81.</p>
+<p>81 = 3<sup>4</sup>, therefore 2x = 4 and x = <b>2</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Simplify 5² × 5³.</li>
-<li>Simplify 7⁶ ÷ 7².</li>
-<li>Solve 2ˣ = 64.</li>
-<li>Solve 5ˣ⁻¹ = 25.</li>
+<li>Simplify 3<sup>4</sup> × 3<sup>2</sup>.</li>
+<li>Simplify 7<sup>6</sup> ÷ 7<sup>2</sup>.</li>
+<li>Solve 5<sup>x</sup> = 125.</li>
+<li>Solve 2<sup>2x</sup> = 64.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 5⁵</p>
-<p>2. 7⁴</p>
-<p>3. x = 6</p>
-<p>4. x = 3</p>
+<ol>
+<li>3<sup>6</sup> = 729</li>
+<li>7<sup>4</sup> = 2401</li>
+<li>x = 3</li>
+<li>x = 3</li>
+</ol>
 `
 },
 
 7: {
 title: "Surds",
+
 lesson: `
 <p>A surd is an irrational root that cannot be simplified to a rational number.</p>
 
 <p>Examples include √2, √3 and √5.</p>
 
-<p>Surds can be simplified by taking perfect-square factors outside the square root.</p>
-`,
-example: `
-<p>√72 = √(36 × 2) = <b>6√2</b>.</p>
+<p>To simplify a surd, express the number under the root as a product containing a perfect square.</p>
 
-<p>Also, √12 + √27 = 2√3 + 3√3 = <b>5√3</b>.</p>
+<div class="formula">
+√(ab) = √a × √b
+</div>
+
+<p>Like surds can be added or subtracted by combining their coefficients. Surds can also be rationalised when they occur in denominators.</p>
 `,
+
+example: `
+<p><b>Example 1:</b> Simplify √50.</p>
+<p>√50 = √(25 × 2) = <b>5√2</b>.</p>
+
+<p><b>Example 2:</b> Simplify 3√2 + 5√2.</p>
+<p>= <b>8√2</b>.</p>
+
+<p><b>Example 3:</b> Rationalise 1/√3.</p>
+<p>Multiply top and bottom by √3:</p>
+<p>= √3/3.</p>
+`,
+
 practice: `
 <ol>
-<li>Simplify √50.</li>
-<li>Simplify √75.</li>
-<li>Simplify √8 + √18.</li>
+<li>Simplify √72.</li>
+<li>Simplify 4√5 + 3√5.</li>
+<li>Simplify √12 + √27.</li>
+<li>Rationalise 2/√5.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 5√2</p>
-<p>2. 5√3</p>
-<p>3. 5√2</p>
+<ol>
+<li>6√2</li>
+<li>7√5</li>
+<li>5√3</li>
+<li>2√5/5</li>
+</ol>
 `
 },
 
 8: {
 title: "Sets",
+
 lesson: `
-<p>A set is a well-defined collection of objects.</p>
+<p>A set is a well-defined collection of objects. Objects in a set are called elements.</p>
 
-<p>Important ideas include universal set, empty set, subset, union and intersection.</p>
+<p>Sets may be represented by listing their elements or by using set-builder notation.</p>
 
-<p>A ∪ B means elements in A or B. A ∩ B means elements common to A and B.</p>
+<p>Important terms include universal set, empty set, subset, union and intersection.</p>
+
+<div class="formula">
+A ∪ B = elements in A or B
+</div>
+
+<div class="formula">
+A ∩ B = elements common to A and B
+</div>
+
+<p>Venn diagrams are useful for representing relationships between sets.</p>
 `,
+
 example: `
-<p>Let A = {1,2,3} and B = {3,4,5}.</p>
-<p>A ∪ B = <b>{1,2,3,4,5}</b></p>
-<p>A ∩ B = <b>{3}</b></p>
+<p>Let A = {1,2,3,4} and B = {3,4,5,6}.</p>
+<p>A ∪ B = <b>{1,2,3,4,5,6}</b>.</p>
+<p>A ∩ B = <b>{3,4}</b>.</p>
+<p>A is a subset of a universal set containing all these elements.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the union of {1,2} and {2,3}.</li>
-<li>Find the intersection of {a,b,c} and {b,c,d}.</li>
-<li>State the meaning of an empty set.</li>
+<li>If A={1,2,3} and B={3,4,5}, find A∪B.</li>
+<li>Find A∩B.</li>
+<li>How many elements are in {a,b,c,d,e}?</li>
+<li>State whether {1,2} is a subset of {1,2,3}.</li>
 </ol>
 `,
+
 answer: `
-<p>1. {1,2,3}</p>
-<p>2. {b,c}</p>
-<p>3. A set containing no element.</p>
+<ol>
+<li>{1,2,3,4,5}</li>
+<li>{3}</li>
+<li>5</li>
+<li>Yes</li>
+</ol>
 `
 },
 
 9: {
 title: "Algebraic Expressions",
+
 lesson: `
-<p>An algebraic expression contains numbers, variables and operations.</p>
+<p>An algebraic expression consists of numbers, variables and operations. Terms are separated by plus or minus signs.</p>
 
 <p>Like terms have the same variables raised to the same powers.</p>
 
-<p>Only like terms can be directly collected together.</p>
-`,
-example: `
-<p>3x + 5x − 2 = <b>8x − 2</b>.</p>
+<p>To simplify an expression, collect like terms and perform the indicated operations.</p>
 
-<p>Expand 3(x + 4):</p>
-<p>= 3x + <b>12</b>.</p>
+<p>The distributive law states that a(b+c) = ab+ac.</p>
 `,
+
+example: `
+<p><b>Example 1:</b> Simplify 3x + 5x - 2.</p>
+<p>= <b>8x - 2</b>.</p>
+
+<p><b>Example 2:</b> Expand 4(x+3).</p>
+<p>= 4x + 12.</p>
+
+<p><b>Example 3:</b> Simplify 3a + 2b - a + 5b.</p>
+<p>= <b>2a + 7b</b>.</p>
+`,
+
 practice: `
 <ol>
-<li>Simplify 4x + 7x − 3.</li>
-<li>Expand 5(x + 2).</li>
-<li>Simplify 3a + 2b + 4a − b.</li>
+<li>Simplify 7x + 2x - 4.</li>
+<li>Expand 5(y+2).</li>
+<li>Simplify 4a+3b-2a+b.</li>
+<li>Expand 3(2x-5).</li>
 </ol>
 `,
+
 answer: `
-<p>1. 11x − 3</p>
-<p>2. 5x + 10</p>
-<p>3. 7a + b</p>
+<ol>
+<li>9x - 4</li>
+<li>5y + 10</li>
+<li>2a + 4b</li>
+<li>6x - 15</li>
+</ol>
 `
 },
 
 10: {
 title: "Factorization",
+
 lesson: `
 <p>Factorization is the process of expressing an algebraic expression as a product of factors.</p>
 
-<p>Common methods include taking out the common factor and using difference of two squares.</p>
-`,
-example: `
-<p>Factorize 6x + 9.</p>
-<p>Common factor = 3.</p>
-<p>Answer = <b>3(2x + 3)</b>.</p>
+<p>Common methods include taking out the common factor, grouping, difference of two squares and factorising quadratic expressions.</p>
 
-<p>x² − 25 = <b>(x − 5)(x + 5)</b>.</p>
+<div class="formula">
+a² - b² = (a-b)(a+b)
+</div>
 `,
+
+example: `
+<p><b>Example 1:</b> Factorise 6x + 12.</p>
+<p>= <b>6(x+2)</b>.</p>
+
+<p><b>Example 2:</b> Factorise x² - 9.</p>
+<p>= (x-3)(x+3).</p>
+
+<p><b>Example 3:</b> Factorise x² + 5x + 6.</p>
+<p>Two numbers with product 6 and sum 5 are 2 and 3.</p>
+<p>Therefore = <b>(x+2)(x+3)</b>.</p>
+`,
+
 practice: `
 <ol>
-<li>Factorize 8x + 12.</li>
-<li>Factorize x² − 16.</li>
-<li>Factorize 3x² + 6x.</li>
+<li>Factorise 8x+16.</li>
+<li>Factorise x²-25.</li>
+<li>Factorise x²+7x+12.</li>
+<li>Factorise 2x²+6x.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 4(2x + 3)</p>
-<p>2. (x − 4)(x + 4)</p>
-<p>3. 3x(x + 2)</p>
+<ol>
+<li>8(x+2)</li>
+<li>(x-5)(x+5)</li>
+<li>(x+3)(x+4)</li>
+<li>2x(x+3)</li>
+</ol>
 `
 },
 
 11: {
 title: "Linear Equations",
-lesson: `
-<p>A linear equation is an equation in which the highest power of the variable is 1.</p>
 
-<p>The objective is to isolate the unknown while maintaining equality on both sides.</p>
+lesson: `
+<p>A linear equation is an equation in which the highest power of the unknown is 1.</p>
+
+<p>The aim of solving an equation is to find the value of the unknown that makes the equation true.</p>
+
+<p>Whatever operation is performed on one side of an equation must also be performed on the other side.</p>
 `,
+
 example: `
-<p>Solve 3x + 5 = 20.</p>
-<p>3x = 15</p>
+<p><b>Example 1:</b> Solve 3x + 5 = 20.</p>
+<p>3x = 15.</p>
+<p>x = <b>5</b>.</p>
+
+<p><b>Example 2:</b> Solve 5x - 7 = 18.</p>
+<p>5x = 25.</p>
 <p>x = <b>5</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Solve 2x + 7 = 17.</li>
-<li>Solve 5x − 3 = 22.</li>
-<li>Solve 4(x + 2) = 24.</li>
+<li>Solve 2x+7=19.</li>
+<li>Solve 4x-9=15.</li>
+<li>Solve 7x+3=31.</li>
+<li>Solve 3(x+2)=21.</li>
 </ol>
 `,
+
 answer: `
-<p>1. x = 5</p>
-<p>2. x = 5</p>
-<p>3. x = 4</p>
+<ol>
+<li>x=6</li>
+<li>x=6</li>
+<li>x=4</li>
+<li>x=5</li>
+</ol>
 `
 },
 
 12: {
 title: "Change of Subject of Formula",
+
 lesson: `
-<p>Changing the subject of a formula means rearranging the formula so that a different variable stands alone.</p>
+<p>Changing the subject of a formula means rearranging a formula so that a different variable is alone on one side.</p>
 
-<p>Use inverse operations carefully and perform the same operation on both sides.</p>
+<p>The same algebraic operations used in solving equations are used here.</p>
+
+<p>Care must be taken when a variable occurs in more than one term or inside brackets.</p>
 `,
+
 example: `
-<p>Given v = u + at, make a the subject.</p>
-<p>v − u = at</p>
-<p><b>a = (v − u)/t</b>.</p>
+<p><b>Example 1:</b> Make x the subject of y = x + 5.</p>
+<p>x = <b>y - 5</b>.</p>
 
-<p>Given A = πr², make r the subject.</p>
-<p><b>r = √(A/π)</b>.</p>
+<p><b>Example 2:</b> Make r the subject of A = πr².</p>
+<p>r² = A/π.</p>
+<p>r = <b>√(A/π)</b>.</p>
+
+<p><b>Example 3:</b> Make v the subject of s = ut + 1/2at².</p>
+<p>ut = s - 1/2at².</p>
+<p>u = (s - 1/2at²)/t.</p>
 `,
+
 practice: `
 <ol>
-<li>Make x the subject of y = 3x + 2.</li>
-<li>Make t the subject of v = u + at.</li>
-<li>Make r the subject of A = πr².</li>
+<li>Make x the subject of y=3x+2.</li>
+<li>Make a the subject of v=u+at.</li>
+<li>Make r the subject of C=2πr.</li>
+<li>Make h the subject of A=1/2bh.</li>
 </ol>
 `,
+
 answer: `
-<p>1. x = (y − 2)/3</p>
-<p>2. t = (v − u)/a</p>
-<p>3. r = √(A/π)</p>
+<ol>
+<li>x=(y-2)/3</li>
+<li>a=(v-u)/t</li>
+<li>r=C/(2π)</li>
+<li>h=2A/b</li>
+</ol>
 `
 },
 
 13: {
 title: "Simultaneous Equations",
+
 lesson: `
-<p>Simultaneous equations are two or more equations containing two or more unknowns that must be solved together.</p>
+<p>Simultaneous equations are two or more equations involving two or more unknowns that must be satisfied at the same time.</p>
 
 <p>Common methods are substitution and elimination.</p>
+
+<p>In the elimination method, coefficients are made equal so that one variable can be eliminated.</p>
 `,
+
 example: `
+<p>Solve:</p>
 <p>x + y = 10</p>
-<p>x − y = 2</p>
+<p>x - y = 2</p>
+
 <p>Add the equations:</p>
-<p>2x = 12, therefore x = 6.</p>
-<p>y = <b>4</b>.</p>
+<p>2x = 12, so x = 6.</p>
+<p>Substitute into x+y=10:</p>
+<p>6+y=10, therefore y=<b>4</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Solve x + y = 9 and x − y = 3.</li>
-<li>Solve 2x + y = 8 and x − y = 1.</li>
+<li>Solve x+y=9 and x-y=3.</li>
+<li>Solve 2x+y=11 and x+y=7.</li>
+<li>Solve x+2y=8 and x-y=2.</li>
 </ol>
 `,
+
 answer: `
-<p>1. x = 6, y = 3</p>
-<p>2. x = 3, y = 2</p>
+<ol>
+<li>x=6, y=3</li>
+<li>x=4, y=3</li>
+<li>x=4, y=2</li>
+</ol>
 `
 },
 
 14: {
 title: "Quadratic Equations",
+
 lesson: `
-<p>A quadratic equation has the form ax² + bx + c = 0, where a ≠ 0.</p>
+<p>A quadratic equation is an equation of the form ax²+bx+c=0, where a is not zero.</p>
 
-<p>Quadratic equations may be solved by factorization, completing the square or the quadratic formula.</p>
+<p>Quadratic equations can be solved by factorization, completing the square or the quadratic formula.</p>
 
-<p>The quadratic formula is:</p>
-<p>x = [-b ± √(b² − 4ac)] / 2a</p>
+<div class="formula">
+x = [-b ± √(b²-4ac)] / 2a
+</div>
+
+<p>The expression b²-4ac is called the discriminant.</p>
 `,
+
 example: `
-<p>Solve x² − 5x + 6 = 0.</p>
-<p>(x − 2)(x − 3) = 0.</p>
-<p>Therefore x = <b>2 or 3</b>.</p>
+<p><b>Example:</b> Solve x²-5x+6=0.</p>
+<p>Factorise:</p>
+<p>(x-2)(x-3)=0.</p>
+<p>Therefore x=2 or x=3.</p>
+
+<p><b>Another example:</b> Solve x²-9=0.</p>
+<p>(x-3)(x+3)=0.</p>
+<p>x=<b>3 or -3</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Solve x² − 7x + 12 = 0.</li>
-<li>Solve x² − 9 = 0.</li>
-<li>State the quadratic formula.</li>
+<li>Solve x²-7x+12=0.</li>
+<li>Solve x²-5x+6=0.</li>
+<li>Solve x²-16=0.</li>
+<li>Solve x²+3x+2=0.</li>
 </ol>
 `,
+
 answer: `
-<p>1. x = 3 or 4</p>
-<p>2. x = ±3</p>
-<p>3. x = [-b ± √(b² − 4ac)]/2a</p>
+<ol>
+<li>x=3 or 4</li>
+<li>x=2 or 3</li>
+<li>x=4 or -4</li>
+<li>x=-1 or -2</li>
+</ol>
 `
 },
 
 15: {
 title: "Variation",
+
 lesson: `
 <p>Variation describes how one quantity changes in relation to another.</p>
 
-<p>In direct variation, y ∝ x, so y = kx.</p>
+<p>In direct variation, y is proportional to x:</p>
 
-<p>In inverse variation, y ∝ 1/x, so y = k/x.</p>
+<div class="formula">y = kx</div>
+
+<p>In inverse variation:</p>
+
+<div class="formula">y = k/x</div>
+
+<p>Joint variation involves more than one variable, while combined variation may involve direct and inverse relationships together.</p>
 `,
+
 example: `
-<p>If y varies directly as x and y = 12 when x = 3:</p>
-<p>12 = 3k, so k = 4.</p>
-<p>Therefore y = <b>4x</b>.</p>
+<p><b>Example 1:</b> y varies directly as x. If y=12 when x=4, find y when x=10.</p>
+<p>12=4k, so k=3.</p>
+<p>Therefore y=3x.</p>
+<p>When x=10, y=<b>30</b>.</p>
+
+<p><b>Example 2:</b> y varies inversely as x. If y=6 when x=4, find y when x=8.</p>
+<p>yx=k=24.</p>
+<p>y=24/8=<b>3</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>If y ∝ x and y = 15 when x = 5, find y when x = 8.</li>
-<li>If y ∝ 1/x and y = 6 when x = 2, find y when x = 3.</li>
+<li>y varies directly as x. If y=15 when x=5, find y when x=8.</li>
+<li>y varies inversely as x. If y=10 when x=3, find y when x=6.</li>
+<li>If y=kx and y=20 when x=4, find k.</li>
 </ol>
 `,
+
 answer: `
-<p>1. y = 24</p>
-<p>2. y = 4</p>
+<ol>
+<li>24</li>
+<li>5</li>
+<li>5</li>
+</ol>
 `
 },
 
 16: {
 title: "Sequence and Series",
+
 lesson: `
 <p>A sequence is an ordered list of numbers. A series is the sum of terms of a sequence.</p>
 
 <p>An arithmetic sequence has a common difference.</p>
 
-<p>The nth term of an arithmetic sequence is:</p>
-<p>Tₙ = a + (n − 1)d</p>
+<div class="formula">
+T<sub>n</sub> = a + (n-1)d
+</div>
+
+<p>The sum of the first n terms is:</p>
+
+<div class="formula">
+S<sub>n</sub> = n/2 [2a+(n-1)d]
+</div>
+
+<p>A geometric sequence has a common ratio.</p>
 `,
+
 example: `
-<p>Find the 10th term of 3, 7, 11, 15...</p>
-<p>a = 3, d = 4.</p>
-<p>T₁₀ = 3 + 9(4) = <b>39</b>.</p>
+<p><b>Example 1:</b> Find the 10th term of 3,7,11,15,...</p>
+<p>a=3, d=4.</p>
+<p>T₁₀=3+9(4)=<b>39</b>.</p>
+
+<p><b>Example 2:</b> Find the sum of the first 10 terms.</p>
+<p>S₁₀=10/2[6+36]=<b>210</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the 8th term of 2,5,8,11...</li>
-<li>Find the common difference of 4,9,14,19.</li>
-<li>Find the 20th term of 3,6,9,...</li>
+<li>Find the 8th term of 2,5,8,11,...</li>
+<li>Find the common difference of 7,12,17,22.</li>
+<li>Find the sum of the first 10 terms of 1,3,5,7,...</li>
 </ol>
 `,
+
 answer: `
-<p>1. 23</p>
-<p>2. 5</p>
-<p>3. 60</p>
+<ol>
+<li>23</li>
+<li>5</li>
+<li>100</li>
+</ol>
 `
 },
 
 17: {
 title: "Binary Operations",
+
 lesson: `
 <p>A binary operation combines two elements of a set to produce another element.</p>
 
-<p>A binary operation may be represented by a symbol such as *.</p>
+<p>A binary operation may be represented by a symbol such as *, where a*b is defined by a given rule.</p>
 
-<p>For example, if a * b = a + b + 1, then 2 * 3 = 6.</p>
+<p>Important properties include closure, commutativity, associativity, identity and inverse.</p>
 `,
+
 example: `
-<p>Given a * b = 2a + b, find 3 * 4.</p>
-<p>= 2(3) + 4</p>
-<p>= <b>10</b>.</p>
+<p>Suppose a*b = a+b+2.</p>
+<p>Then 3*4 = 3+4+2 = <b>9</b>.</p>
+
+<p>For the same operation:</p>
+<p>2*5 = 2+5+2 = <b>9</b>.</p>
+
+<p>The identity element e satisfies a*e=a.</p>
 `,
+
 practice: `
 <ol>
-<li>If a*b = a+b+2, find 3*4.</li>
-<li>If a*b = 2a−b, find 5*3.</li>
+<li>If a*b=a+b+1, find 3*5.</li>
+<li>If a*b=ab+2, find 4*3.</li>
+<li>If a*b=a+b, find 7*8.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 9</p>
-<p>2. 7</p>
+<ol>
+<li>9</li>
+<li>14</li>
+<li>15</li>
+</ol>
 `
 },
 
 18: {
 title: "Modular Arithmetic",
+
 lesson: `
 <p>Modular arithmetic deals with remainders after division.</p>
 
-<p>a ≡ b (mod n) means that a and b have the same remainder when divided by n.</p>
-`,
-example: `
-<p>17 mod 5 = <b>2</b>.</p>
+<div class="formula">
+a ≡ b (mod n)
+</div>
 
-<p>23 ≡ 3 (mod 10).</p>
+<p>This means that a and b leave the same remainder when divided by n.</p>
+
+<p>For example, 17 ≡ 5 (mod 12), because both leave remainder 5.</p>
+
+<p>Modular arithmetic is useful in clock calculations, calendars and computer science.</p>
 `,
+
+example: `
+<p><b>Example 1:</b> Find 29 mod 6.</p>
+<p>29 = 4×6+5, so the remainder is <b>5</b>.</p>
+
+<p><b>Example 2:</b> 23 ≡ ? (mod 7).</p>
+<p>23 leaves remainder 2.</p>
+<p>Therefore 23 ≡ <b>2 (mod 7)</b>.</p>
+`,
+
 practice: `
 <ol>
-<li>Calculate 29 mod 6.</li>
-<li>Calculate 45 mod 7.</li>
-<li>State whether 18 ≡ 4 (mod 7).</li>
+<li>Find 35 mod 6.</li>
+<li>Find 48 mod 7.</li>
+<li>State the remainder when 100 is divided by 9.</li>
+<li>Is 26 ≡ 2 (mod 8)?</li>
 </ol>
 `,
+
 answer: `
-<p>1. 5</p>
-<p>2. 3</p>
-<p>3. Yes</p>
+<ol>
+<li>5</li>
+<li>6</li>
+<li>1</li>
+<li>Yes</li>
+</ol>
 `
 },
 
 19: {
 title: "Plane Geometry",
+
 lesson: `
-<p>Plane geometry studies figures on a flat surface.</p>
+<p>Plane geometry deals with shapes and figures on a flat surface.</p>
 
-<p>Important concepts include points, lines, angles, polygons, triangles and circles.</p>
+<p>Important geometric concepts include points, lines, line segments, rays, angles, triangles, quadrilaterals, circles and polygons.</p>
 
-<p>The sum of angles around a point is 360°.</p>
+<p>Geometric reasoning often involves known properties and theorems.</p>
+
+<p>The sum of angles in a triangle is 180°.</p>
 `,
+
 example: `
-<p>If two angles around a point are 120° and 90°, the third angle is:</p>
-<p>360° − 120° − 90° = <b>150°</b>.</p>
+<p><b>Example:</b> Two angles of a triangle are 65° and 45°. Find the third angle.</p>
+<p>Third angle = 180° - 65° - 45°</p>
+<p>= <b>70°</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the missing angle around a point if the other angles are 100° and 80°.</li>
-<li>What is the sum of angles around a point?</li>
+<li>Find the third angle of a triangle with angles 50° and 60°.</li>
+<li>What is the sum of angles in a triangle?</li>
+<li>What is the sum of angles on a straight line?</li>
 </ol>
 `,
+
 answer: `
-<p>1. 180°</p>
-<p>2. 360°</p>
+<ol>
+<li>70°</li>
+<li>180°</li>
+<li>180°</li>
+</ol>
 `
 },
 
 20: {
 title: "Angles and Lines",
+
 lesson: `
-<p>Angles are formed when two lines meet.</p>
+<p>An angle is formed when two lines or rays meet.</p>
 
-<p>Angles on a straight line add up to 180°.</p>
+<p>Angles may be acute, right, obtuse, straight, reflex or complete.</p>
 
-<p>Vertically opposite angles are equal.</p>
+<ul>
+<li>Acute angle: less than 90°</li>
+<li>Right angle: 90°</li>
+<li>Obtuse angle: greater than 90° but less than 180°</li>
+<li>Straight angle: 180°</li>
+<li>Reflex angle: greater than 180° but less than 360°</li>
+</ul>
 
-<p>For parallel lines, corresponding angles are equal and alternate angles are equal.</p>
+<p>Parallel lines cut by a transversal produce corresponding, alternate and co-interior angles.</p>
 `,
+
 example: `
-<p>If two angles on a straight line are x and 65°:</p>
-<p>x + 65° = 180°</p>
-<p>x = <b>115°</b>.</p>
+<p><b>Example:</b> If one angle on a straight line is 65°, find the other.</p>
+<p>Angles on a straight line sum to 180°.</p>
+<p>Other angle = 180°-65° = <b>115°</b>.</p>
 `,
+
 practice: `
 <ol>
 <li>Find the complement of 35°.</li>
-<li>Find the supplement of 70°.</li>
-<li>Two vertically opposite angles are 82°. Find the other angle.</li>
+<li>Find the supplement of 72°.</li>
+<li>Find the missing angle on a straight line if one angle is 128°.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 55°</p>
-<p>2. 110°</p>
-<p>3. 82°</p>
+<ol>
+<li>55°</li>
+<li>108°</li>
+<li>52°</li>
+</ol>
 `
 },
 
 21: {
 title: "Triangles",
+
 lesson: `
-<p>A triangle is a polygon with three sides.</p>
+<p>A triangle is a polygon with three sides and three angles.</p>
 
-<p>The sum of the interior angles of a triangle is 180°.</p>
+<p>Triangles may be classified by sides as equilateral, isosceles or scalene, and by angles as acute, right-angled or obtuse.</p>
 
-<p>Types include equilateral, isosceles and scalene triangles.</p>
+<p>The sum of the interior angles of every triangle is 180°.</p>
+
+<p>In a right-angled triangle, Pythagoras' theorem states:</p>
+
+<div class="formula">
+a² + b² = c²
+</div>
 `,
+
 example: `
-<p>A triangle has angles 50° and 60°.</p>
-<p>The third angle = 180° − 50° − 60° = <b>70°</b>.</p>
+<p><b>Example 1:</b> Find the third angle of a triangle with angles 40° and 80°.</p>
+<p>= 180° - 120° = <b>60°</b>.</p>
+
+<p><b>Example 2:</b> A right triangle has sides 6 cm and 8 cm. Find the hypotenuse.</p>
+<p>c²=6²+8²=36+64=100.</p>
+<p>c=<b>10 cm</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the third angle of a triangle with angles 45° and 65°.</li>
-<li>State the angles of an equilateral triangle.</li>
-<li>What is an isosceles triangle?</li>
+<li>Find the third angle if two angles are 35° and 75°.</li>
+<li>Find the hypotenuse of a right triangle with legs 5 cm and 12 cm.</li>
+<li>State the sum of angles in a triangle.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 70°</p>
-<p>2. 60°, 60°, 60°</p>
-<p>3. A triangle with two equal sides and two equal angles.</p>
+<ol>
+<li>70°</li>
+<li>13 cm</li>
+<li>180°</li>
+</ol>
 `
 },
 
 22: {
 title: "Quadrilaterals and Polygons",
+
 lesson: `
-<p>A quadrilateral has four sides and its interior angles sum to 360°.</p>
+<p>A quadrilateral has four sides. Examples include square, rectangle, parallelogram, rhombus, trapezium and kite.</p>
 
-<p>Examples include square, rectangle, parallelogram, rhombus and trapezium.</p>
+<p>The sum of the interior angles of a quadrilateral is 360°.</p>
 
-<p>The sum of interior angles of an n-sided polygon is (n − 2) × 180°.</p>
+<p>A polygon is a closed plane figure made of straight line segments.</p>
+
+<div class="formula">
+Sum of interior angles = (n-2) × 180°
+</div>
+
+<p>For a regular polygon, all sides and angles are equal.</p>
 `,
+
 example: `
-<p>For a pentagon:</p>
-<p>(5 − 2) × 180° = <b>540°</b>.</p>
+<p><b>Example:</b> Find the sum of the interior angles of a pentagon.</p>
+<p>(5-2)×180° = <b>540°</b>.</p>
+
+<p>For a regular pentagon, each interior angle is:</p>
+<p>540°÷5 = <b>108°</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the sum of angles in a hexagon.</li>
-<li>Find each angle of a regular pentagon.</li>
-<li>Find the missing angle in a quadrilateral with angles 80°, 90° and 100°.</li>
+<li>Find the sum of the angles of a hexagon.</li>
+<li>Find each interior angle of a regular square.</li>
+<li>Find the sum of the interior angles of an octagon.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 720°</p>
-<p>2. 108°</p>
-<p>3. 90°</p>
+<ol>
+<li>720°</li>
+<li>90°</li>
+<li>1080°</li>
+</ol>
 `
 },
 
 23: {
 title: "Circles",
+
 lesson: `
-<p>A circle is the set of points at a fixed distance from a centre.</p>
+<p>A circle is a plane figure whose points are all the same distance from a fixed point called the centre.</p>
 
-<p>The radius is the distance from the centre to the circumference. The diameter is twice the radius.</p>
+<p>Important terms include radius, diameter, chord, arc, sector, segment, tangent and circumference.</p>
 
-<p>Circumference = 2πr.</p>
+<div class="formula">
+Diameter = 2r
+</div>
 
-<p>Area = πr².</p>
+<div class="formula">
+Circumference = 2πr
+</div>
+
+<div class="formula">
+Area = πr²
+</div>
 `,
+
 example: `
-<p>Find the circumference of a circle with radius 7 cm.</p>
-<p>C = 2 × 22/7 × 7 = <b>44 cm</b>.</p>
+<p><b>Example 1:</b> Find the circumference of a circle of radius 7 cm using π=22/7.</p>
+<p>C=2×22/7×7 = <b>44 cm</b>.</p>
+
+<p><b>Example 2:</b> Find its area.</p>
+<p>A=22/7×7×7 = <b>154 cm²</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the area of a circle of radius 7 cm.</li>
-<li>Find the diameter if radius is 12 cm.</li>
-<li>Write the formula for circumference.</li>
+<li>Find the diameter of a circle of radius 8 cm.</li>
+<li>Find the circumference of a circle of radius 14 cm using π=22/7.</li>
+<li>Find the area of a circle of radius 7 cm using π=22/7.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 154 cm²</p>
-<p>2. 24 cm</p>
-<p>3. C = 2πr</p>
+<ol>
+<li>16 cm</li>
+<li>88 cm</li>
+<li>154 cm²</li>
+</ol>
 `
 },
 
 24: {
 title: "Mensuration of Plane Shapes",
+
 lesson: `
-<p>Mensuration deals with measurement of length, perimeter and area.</p>
+<p>Mensuration deals with measurement of geometric figures.</p>
 
-<p>Rectangle area = length × width.</p>
+<p>Important measurements include perimeter and area.</p>
 
-<p>Triangle area = 1/2 × base × height.</p>
+<div class="formula">
+Rectangle area = length × width
+</div>
 
-<p>Parallelogram area = base × height.</p>
+<div class="formula">
+Triangle area = 1/2 × base × height
+</div>
+
+<div class="formula">
+Parallelogram area = base × height
+</div>
+
+<div class="formula">
+Trapezium area = 1/2(a+b)h
+</div>
 `,
+
 example: `
-<p>A rectangle has length 12 cm and width 5 cm.</p>
-<p>Area = 12 × 5 = <b>60 cm²</b>.</p>
+<p><b>Example 1:</b> A rectangle is 12 cm long and 5 cm wide.</p>
+<p>Area = 12×5 = <b>60 cm²</b>.</p>
+
+<p><b>Example 2:</b> Find the area of a triangle with base 10 cm and height 8 cm.</p>
+<p>Area=1/2×10×8=<b>40 cm²</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the area of a triangle with base 10 cm and height 8 cm.</li>
 <li>Find the area of a rectangle 15 cm by 6 cm.</li>
+<li>Find the area of a triangle with base 12 cm and height 7 cm.</li>
 <li>Find the perimeter of a square of side 9 cm.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 40 cm²</p>
-<p>2. 90 cm²</p>
-<p>3. 36 cm</p>
+<ol>
+<li>90 cm²</li>
+<li>42 cm²</li>
+<li>36 cm</li>
+</ol>
 `
 },
 
 25: {
 title: "Mensuration of Solids",
+
 lesson: `
-<p>Mensuration of solids involves calculating surface areas and volumes of three-dimensional objects.</p>
+<p>Solid mensuration deals with three-dimensional objects such as cubes, cuboids, cylinders, prisms, pyramids and spheres.</p>
 
-<p>Volume of a cuboid = l × w × h.</p>
+<div class="formula">
+Cuboid volume = lwh
+</div>
 
-<p>Volume of a cylinder = πr²h.</p>
+<div class="formula">
+Cylinder volume = πr²h
+</div>
 
-<p>Volume of a prism = area of cross-section × length.</p>
+<div class="formula">
+Sphere volume = 4/3πr³
+</div>
+
+<p>Surface area measures the total area of the outer surfaces of a solid.</p>
 `,
+
 example: `
-<p>A cuboid measures 5 cm × 4 cm × 3 cm.</p>
-<p>Volume = 5 × 4 × 3 = <b>60 cm³</b>.</p>
+<p><b>Example:</b> Find the volume of a cuboid measuring 8 cm by 5 cm by 3 cm.</p>
+<p>V=8×5×3=<b>120 cm³</b>.</p>
+
+<p><b>Example:</b> Find the volume of a cylinder with radius 7 cm and height 10 cm using π=22/7.</p>
+<p>V=22/7×49×10=<b>1540 cm³</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the volume of a cuboid 8 cm × 5 cm × 2 cm.</li>
-<li>Find the volume of a cylinder with r = 7 cm and h = 10 cm.</li>
+<li>Find the volume of a cuboid 10 cm × 4 cm × 3 cm.</li>
+<li>Find the volume of a cube of side 5 cm.</li>
+<li>Find the volume of a cylinder with r=7 cm and h=5 cm using π=22/7.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 80 cm³</p>
-<p>2. 1540 cm³ using π = 22/7</p>
+<ol>
+<li>120 cm³</li>
+<li>125 cm³</li>
+<li>770 cm³</li>
+</ol>
 `
 },
 
 26: {
 title: "Coordinate Geometry",
+
 lesson: `
-<p>Coordinate geometry uses ordered pairs to locate points on a plane.</p>
+<p>Coordinate geometry studies points and shapes using a coordinate plane.</p>
 
-<p>A point is written as (x,y), where x is the horizontal coordinate and y is the vertical coordinate.</p>
+<p>A point is represented by an ordered pair (x,y), where x is the horizontal coordinate and y is the vertical coordinate.</p>
 
-<p>The distance between two points can be found using the distance formula.</p>
+<p>The coordinate plane has four quadrants.</p>
+
+<div class="formula">
+Midpoint = ((x₁+x₂)/2, (y₁+y₂)/2)
+</div>
+
+<p>The distance between points can be found using the distance formula.</p>
 `,
+
 example: `
-<p>The point (3,4) is 3 units along the x-axis and 4 units up the y-axis.</p>
-
-<p>Distance between (0,0) and (3,4):</p>
-<p>√(3² + 4²) = <b>5 units</b>.</p>
+<p><b>Example:</b> Find the midpoint of A(2,4) and B(6,8).</p>
+<p>x-coordinate = (2+6)/2=4.</p>
+<p>y-coordinate = (4+8)/2=6.</p>
+<p>Midpoint = <b>(4,6)</b>.</p>
 `,
+
 practice: `
 <ol>
 <li>State the coordinates of the origin.</li>
-<li>Find the distance between (0,0) and (6,8).</li>
-<li>Identify the x-coordinate of (5,9).</li>
+<li>Find the midpoint of (1,2) and (5,6).</li>
+<li>In which quadrant is (-3,4)?</li>
+<li>In which quadrant is (4,-2)?</li>
 </ol>
 `,
+
 answer: `
-<p>1. (0,0)</p>
-<p>2. 10 units</p>
-<p>3. 5</p>
+<ol>
+<li>(0,0)</li>
+<li>(3,4)</li>
+<li>Quadrant II</li>
+<li>Quadrant IV</li>
+</ol>
 `
 },
 
 27: {
 title: "Straight Lines and Graphs",
+
 lesson: `
-<p>A straight-line graph can be represented by y = mx + c.</p>
+<p>A straight-line graph represents a linear relationship.</p>
 
-<p>m is the gradient and c is the y-intercept.</p>
+<div class="formula">
+y = mx + c
+</div>
 
-<p>Gradient = change in y / change in x.</p>
+<p>Here m is the gradient and c is the y-intercept.</p>
+
+<div class="formula">
+Gradient = (y₂-y₁)/(x₂-x₁)
+</div>
+
+<p>Graphs can be used to solve equations, interpret relationships and find unknown values.</p>
 `,
+
 example: `
-<p>For y = 2x + 3:</p>
-<p>Gradient = <b>2</b>.</p>
-<p>y-intercept = <b>3</b>.</p>
+<p><b>Example:</b> Find the gradient of the line through (2,3) and (6,11).</p>
+<p>m=(11-3)/(6-2)=8/4=<b>2</b>.</p>
+
+<p>If the line is y=2x+c and passes through (2,3):</p>
+<p>3=4+c, so c=-1.</p>
+<p>Equation: <b>y=2x-1</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>State the gradient of y = 5x + 2.</li>
-<li>State the y-intercept of y = 3x − 7.</li>
-<li>Find the gradient through (1,2) and (3,6).</li>
+<li>Find the gradient between (1,2) and (5,10).</li>
+<li>Identify the gradient in y=3x+5.</li>
+<li>Identify the y-intercept in y=4x-7.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 5</p>
-<p>2. −7</p>
-<p>3. 2</p>
+<ol>
+<li>2</li>
+<li>3</li>
+<li>-7</li>
+</ol>
 `
 },
 
 28: {
 title: "Trigonometry",
+
 lesson: `
-<p>Trigonometry studies relationships between angles and sides of triangles.</p>
+<p>Trigonometry studies relationships between the sides and angles of triangles.</p>
 
 <p>For a right-angled triangle:</p>
 
-<p>sin θ = opposite/hypotenuse</p>
-<p>cos θ = adjacent/hypotenuse</p>
-<p>tan θ = opposite/adjacent</p>
+<div class="formula">
+sin θ = opposite/hypotenuse
+</div>
 
-<p>These are commonly remembered as SOH CAH TOA.</p>
+<div class="formula">
+cos θ = adjacent/hypotenuse
+</div>
+
+<div class="formula">
+tan θ = opposite/adjacent
+</div>
+
+<p>These ratios are commonly remembered as SOH-CAH-TOA.</p>
 `,
+
 example: `
-<p>If opposite = 3 and hypotenuse = 5:</p>
-<p>sin θ = 3/5 = <b>0.6</b>.</p>
+<p><b>Example:</b> A right triangle has opposite side 6 cm and hypotenuse 10 cm. Find sin θ.</p>
+<p>sin θ = 6/10 = <b>0.6</b>.</p>
+
+<p><b>Example:</b> If tan θ=1, then θ=<b>45°</b> for an acute angle.</p>
 `,
+
 practice: `
 <ol>
-<li>If opposite = 6 and hypotenuse = 10, find sin θ.</li>
-<li>If adjacent = 4 and hypotenuse = 5, find cos θ.</li>
-<li>If opposite = 8 and adjacent = 4, find tan θ.</li>
+<li>If opposite=3 and hypotenuse=5, find sin θ.</li>
+<li>If adjacent=4 and hypotenuse=5, find cos θ.</li>
+<li>If opposite=6 and adjacent=8, find tan θ.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 0.6</p>
-<p>2. 0.8</p>
-<p>3. 2</p>
+<ol>
+<li>0.6</li>
+<li>0.8</li>
+<li>0.75</li>
+</ol>
 `
 },
 
 29: {
 title: "Bearings and Distances",
+
 lesson: `
-<p>A bearing is the direction of one point from another measured clockwise from North.</p>
+<p>A bearing gives the direction of one point from another measured clockwise from North.</p>
 
-<p>Bearings are normally written as three-figure angles, such as 045°, 090° and 270°.</p>
+<p>Bearings are written as three-figure angles, such as 045°, 090°, 180° and 270°.</p>
 
-<p>Trigonometry can be used to calculate distances and directions.</p>
+<p>Bearings are often combined with trigonometry and Pythagoras' theorem to solve distance and direction problems.</p>
 `,
+
 example: `
-<p>A bearing of 090° means due East.</p>
+<p><b>Example:</b> A town B is directly east of town A. What is the bearing of B from A?</p>
+<p>East corresponds to <b>090°</b>.</p>
 
-<p>A bearing of 180° means due South.</p>
+<p>If a point is directly south, its bearing is <b>180°</b>.</p>
 
-<p>A bearing of 270° means due West.</p>
+<p>Directly west has bearing <b>270°</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>What is the bearing of due North?</li>
-<li>What is the bearing of due East?</li>
-<li>What is the bearing of due South?</li>
-<li>What is the bearing of due West?</li>
+<li>What is the bearing of North?</li>
+<li>What is the bearing of East?</li>
+<li>What is the bearing of South?</li>
+<li>What is the bearing of West?</li>
 </ol>
 `,
+
 answer: `
-<p>1. 000°</p>
-<p>2. 090°</p>
-<p>3. 180°</p>
-<p>4. 270°</p>
+<ol>
+<li>000°</li>
+<li>090°</li>
+<li>180°</li>
+<li>270°</li>
+</ol>
 `
 },
 
 30: {
 title: "Statistics",
+
 lesson: `
-<p>Statistics involves collecting, organizing, presenting and interpreting data.</p>
+<p>Statistics is the study of collecting, organising, presenting and interpreting data.</p>
 
-<p>Data may be presented using tables, bar charts, pie charts, histograms and frequency distributions.</p>
+<p>Data may be qualitative or quantitative. Quantitative data may be discrete or continuous.</p>
 
-<p>Good statistical analysis requires accurate collection and appropriate presentation of data.</p>
+<p>Data can be represented using tables, bar charts, histograms, pie charts, line graphs and frequency distributions.</p>
+
+<p>A frequency table shows how often each value occurs.</p>
 `,
+
 example: `
-<p>Consider the data: 2, 4, 4, 5, 7.</p>
+<p>Consider the data: 2, 3, 3, 4, 5, 5, 5.</p>
+<p>The frequency of 2 is 1.</p>
+<p>The frequency of 3 is 2.</p>
+<p>The frequency of 4 is 1.</p>
+<p>The frequency of 5 is 3.</p>
 
-<p>The data can be arranged in a frequency table by counting how many times each value occurs.</p>
+<p>Total frequency = <b>7</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Arrange 7,2,5,1,4 in ascending order.</li>
-<li>What is a frequency table?</li>
-<li>Name two methods of presenting data.</li>
+<li>Find the frequency of 4 in 2,4,4,5,6.</li>
+<li>How many observations are in 3,5,7,8,9?</li>
+<li>Name two methods of presenting statistical data.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 1,2,4,5,7</p>
-<p>2. A table showing values and their frequencies.</p>
-<p>3. Bar chart and pie chart.</p>
+<ol>
+<li>2</li>
+<li>5</li>
+<li>Bar chart and pie chart</li>
+</ol>
 `
 },
 
 31: {
 title: "Measures of Central Tendency",
+
 lesson: `
-<p>The three main measures of central tendency are mean, median and mode.</p>
+<p>Measures of central tendency give a value that represents the centre of a set of data.</p>
 
-<p>Mean = sum of observations ÷ number of observations.</p>
+<p>The three main measures are mean, median and mode.</p>
 
-<p>Median is the middle value when data is arranged in order.</p>
+<div class="formula">
+Mean = Sum of observations ÷ Number of observations
+</div>
 
-<p>Mode is the value that occurs most frequently.</p>
+<p>The median is the middle value when data are arranged in order.</p>
+
+<p>The mode is the value that occurs most frequently.</p>
 `,
+
 example: `
-<p>For 2, 4, 4, 6, 9:</p>
-
+<p>For the data 2, 4, 4, 6, 9:</p>
+<p>Sum = 25.</p>
 <p>Mean = 25/5 = <b>5</b>.</p>
-
 <p>Median = <b>4</b>.</p>
-
 <p>Mode = <b>4</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the mean of 3,5,7,9.</li>
-<li>Find the median of 2,4,6,8,10.</li>
-<li>Find the mode of 2,3,3,4,5.</li>
+<li>Find the mean of 4,6,8,10.</li>
+<li>Find the median of 2,5,7,9,10.</li>
+<li>Find the mode of 3,4,4,5,6.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 6</p>
-<p>2. 6</p>
-<p>3. 3</p>
+<ol>
+<li>7</li>
+<li>7</li>
+<li>4</li>
+</ol>
 `
 },
 
 32: {
 title: "Probability",
+
 lesson: `
 <p>Probability measures how likely an event is to occur.</p>
 
-<p>For equally likely outcomes:</p>
+<div class="formula">
+P(E) = Number of favourable outcomes / Total number of possible outcomes
+</div>
 
-<p>Probability = number of favourable outcomes / total number of outcomes.</p>
+<p>Probability lies between 0 and 1 inclusive.</p>
 
-<p>Probability ranges from 0 to 1.</p>
+<p>A probability of 0 means impossible, while a probability of 1 means certain.</p>
+
+<div class="formula">
+P(not E) = 1 - P(E)
+</div>
 `,
+
 example: `
-<p>A fair die has six faces. The probability of rolling a 4 is:</p>
-<p>1/6.</p>
+<p><b>Example:</b> A fair die is thrown. Find the probability of obtaining a 4.</p>
+<p>There is one favourable outcome out of six.</p>
+<p>P(4)=<b>1/6</b>.</p>
 
-<p>The probability of rolling an even number is:</p>
-<p>3/6 = <b>1/2</b>.</p>
+<p><b>Example:</b> Find the probability of obtaining an even number.</p>
+<p>Even outcomes are 2,4,6: 3 out of 6.</p>
+<p>P(even)=3/6=<b>1/2</b>.</p>
 `,
+
 practice: `
 <ol>
-<li>Find the probability of getting a head when tossing a fair coin.</li>
-<li>Find the probability of rolling a 6 on a fair die.</li>
-<li>Find the probability of rolling an odd number on a die.</li>
+<li>Find the probability of getting a head when a fair coin is tossed.</li>
+<li>Find the probability of getting 6 on a fair die.</li>
+<li>Find the probability of not getting 6 on a fair die.</li>
 </ol>
 `,
+
 answer: `
-<p>1. 1/2</p>
-<p>2. 1/6</p>
-<p>3. 1/2</p>
+<ol>
+<li>1/2</li>
+<li>1/6</li>
+<li>5/6</li>
+</ol>
 `
 },
 
 33: {
 title: "Permutation",
+
 lesson: `
-<p>Permutation deals with arrangements where order matters.</p>
+<p>A permutation is an arrangement of objects in a particular order.</p>
 
-<p>The number of ways of arranging n different objects is n!.</p>
+<p>The order of arrangement matters in permutation problems.</p>
 
-<p>n! = n × (n−1) × (n−2) × ... × 1.</p>
+<div class="formula">
+n! = n(n-1)(n-2)...1
+</div>
+
+<div class="formula">
+nP r = n!/(n-r)!
+</div>
+
+<p>For example, arranging A, B and C gives ABC, ACB, BAC, BCA, CAB and CBA.</p>
 `,
+
 example: `
-<p>How many ways can 4 different books be arranged?</p>
+<p><b>Example 1:</b> Find 4!.</p>
+<p>4! = 4×3×2×1 = <b>24</b>.</p>
 
-<p>4! = 4 × 3 × 2 × 1 = <b>24</b>.</p>
+<p><b>Example 2:</b> Find 5P2.</p>
+<p>5P2 = 5×4 = <b>20</b>.</p>
 `,
+
 practice: `
 <ol>
+<li>Find 3!.</li>
 <li>Find 5!.</li>
-<li>How many ways can 3 people sit in a row?</li>
-<li>Evaluate 4!.</li>
+<li>Find 6P2.</li>
+<li>How many ways can 3 different books be arranged on a shelf?</li>
 </ol>
 `,
+
 answer: `
-<p>1. 120</p>
-<p>2. 6</p>
-<p>3. 24</p>
+<ol>
+<li>6</li>
+<li>120</li>
+<li>30</li>
+<li>6 ways</li>
+</ol>
 `
 },
 
 34: {
 title: "Combination",
+
 lesson: `
-<p>Combination deals with selections where order does not matter.</p>
+<p>A combination is a selection of objects where order does not matter.</p>
 
-<p>The formula is:</p>
+<div class="formula">
+nC r = n!/[r!(n-r)!]
+</div>
 
-<p>nCr = n! / [r!(n−r)!]</p>
+<p>Combinations are useful when selecting teams, committees or groups.</p>
+
+<p>Unlike permutation, changing the order does not create a new combination.</p>
 `,
+
 example: `
-<p>Find 5C2.</p>
-
+<p><b>Example:</b> Find 5C2.</p>
 <p>5C2 = 5!/(2!3!)</p>
-<p>= 10.</p>
+<p>= (5×4)/(2×1)</p>
+<p>= <b>10</b>.</p>
+
+<p>Therefore, 2 objects can be selected from 5 objects in 10 ways.</p>
 `,
+
 practice: `
 <ol>
 <li>Find 4C2.</li>
-<li>Find 5C1.</li>
+<li>Find 5C3.</li>
 <li>Find 6C2.</li>
+<li>How many ways can 2 students be selected from 6 students?</li>
 </ol>
 `,
+
 answer: `
-<p>1. 6</p>
-<p>2. 5</p>
-<p>3. 15</p>
+<ol>
+<li>6</li>
+<li>10</li>
+<li>15</li>
+<li>15 ways</li>
+</ol>
 `
 },
 
 35: {
 title: "Introduction to Matrices",
+
 lesson: `
-<p>A matrix is a rectangular arrangement of numbers or elements in rows and columns.</p>
+<p>A matrix is a rectangular arrangement of numbers or other mathematical objects in rows and columns.</p>
 
-<p>The order of a matrix is written as rows × columns.</p>
+<p>The order of a matrix is written as m × n, where m is the number of rows and n is the number of columns.</p>
 
-<p>A matrix with 2 rows and 3 columns is a 2 × 3 matrix.</p>
+<p>A matrix with two rows and three columns is a 2 × 3 matrix.</p>
 
 <p>Matrices can be added or subtracted when they have the same order.</p>
+
+<p>Matrix multiplication follows specific rules and is different from ordinary multiplication of corresponding entries.</p>
 `,
+
 example: `
-<p>Let:</p>
+<p>Let</p>
 
-<p>A = [ [1,2], [3,4] ]</p>
+<p>
+A = [ 2 &nbsp; 3 ]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[ 4 &nbsp; 5 ]
+</p>
 
-<p>The matrix A has 2 rows and 2 columns, so its order is <b>2 × 2</b>.</p>
+<p>A is a <b>2 × 2</b> matrix.</p>
 
-<p>If B = [ [5,6], [7,8] ], then:</p>
+<p>Let</p>
 
-<p>A + B = [ [6,8], [10,12] ].</p>
+<p>
+B = [ 1 &nbsp; 2 ]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[ 3 &nbsp; 4 ]
+</p>
+
+<p>Then</p>
+
+<p>
+A+B = [ 3 &nbsp; 5 ]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ 7 &nbsp; 9 ]
+</p>
+
+<p>Each corresponding element is added.</p>
 `,
+
 practice: `
 <ol>
-<li>State the order of a matrix with 3 rows and 2 columns.</li>
-<li>Can a 2 × 3 matrix be added directly to a 3 × 2 matrix?</li>
-<li>Add [ [1,2], [3,4] ] and [ [2,3], [4,5] ].</li>
+<li>What is the order of a matrix with 3 rows and 2 columns?</li>
+<li>Can a 2×3 matrix be added to another 2×3 matrix?</li>
+<li>Find the sum of [1 2; 3 4] and [2 3; 4 5].</li>
+<li>How many elements are in a 3×4 matrix?</li>
 </ol>
 `,
+
 answer: `
-<p>1. 3 × 2</p>
-<p>2. No.</p>
-<p>3. [ [3,5], [7,9] ]</p>
+<ol>
+<li>3×2</li>
+<li>Yes</li>
+<li>[3 5; 7 9]</li>
+<li>12 elements</li>
+</ol>
 `
 }
 
 };
+
 
 function showTopic() {
 
@@ -1278,7 +1838,7 @@ function showTopic() {
             ${topic.answer}
         </div>
 
-        <button onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})">
             ↑ Back to Top
         </button>
     `;
